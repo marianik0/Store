@@ -24,7 +24,6 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
-    private ProductAdapter adapter;
     private List<Product> products;
     private RecyclerView recyclerView;
 
@@ -35,10 +34,11 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        recyclerView = getView().findViewById(R.id.recyclerView);
 
         products.add(new Product("1", "футболка", 10.55F));
         products.add(new Product("2", "кофта", 10.55F));
-        adapter = new ProductAdapter(getActivity(), products);
+        ProductAdapter adapter = new ProductAdapter(products);
         recyclerView.setAdapter(adapter);
 
         return root;
